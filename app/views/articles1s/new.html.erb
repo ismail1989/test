@@ -1,13 +1,21 @@
 <h1>Create New Article</h1>
 
+<% if @articles1.errors.any? %>
+<ul>
+    <% @articles1.errors.full_messages.each do |msg| %>
+    <li><% msg %></li>
+    <% end %>
+</ul>
+
+<% end %>
 <%= form_for @articles1 do |f| %>
     
     <p>
-        <%= f.lable :title %><br />
+        <%= f.label :title %><br />
         <%= f.text_field :title %>
     </p>
     <p>
-        <%= f.lable :description %><br />
+        <%= f.label :description %><br />
         <%= f.text_area :description %>
     </p>
     <p>
